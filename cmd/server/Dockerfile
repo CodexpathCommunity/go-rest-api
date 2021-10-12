@@ -14,12 +14,10 @@ RUN tar -xzf /tmp/migrate.linux-amd64.tar.gz -C /usr/local/bin && mv /usr/local/
 
 WORKDIR /app
 
-COPY . .
-
 # copy module files first so that they don't need to be downloaded again if no change
-COPY go.* ./
-RUN go mod download
-RUN go mod verify
+#COPY go.* ./
+#RUN go mod download
+#RUN go mod verify
 
 # copy source files and build the binary
 COPY . .
